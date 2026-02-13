@@ -1,0 +1,19 @@
+{
+  "path": "context",
+  "created": "2026-01-24T18:30:00Z",
+  "updated": "2026-02-13T11:00:00Z",
+  "memories": {
+    "project-overview": {
+      "title": "SRE Framework Project Overview",
+      "tags": ["project", "sre", "framework", "documentation"],
+      "confidence": 0.95,
+      "created": "2026-01-24T18:30:00Z"
+    },
+    "sre-philosophy": {
+      "title": "SRE Philosophy — Stefan's Practical Definition",
+      "tags": ["philosophy", "sre", "manifesto", "concentric-model", "standby", "ops"],
+      "confidence": 0.98,
+      "created": "2026-02-13T11:00:00Z"
+    }
+  }
+}
