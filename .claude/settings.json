@@ -1,0 +1,33 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash(git commit*)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'BRANCH=$(git branch --show-current); if [ \"$BRANCH\" = \"main\" ]; then echo \"BLOCKED: Cannot commit directly to main. Create a feature branch first.\" && exit 1; fi'"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash(git push origin main*)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'echo \"BLOCKED: Cannot push directly to main. Use a PR.\" && exit 1'"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash(gh pr merge*)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'echo \"GATE: PR merge requested. Requires explicit user approval.\" && exit 1'"
+          }
+        ]
+      }
+    ]
+  }
+}
