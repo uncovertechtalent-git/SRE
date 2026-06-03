@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VP Engineering — Interview Scorecard</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --accent: #1f9cf0;
+    --green-bg: #ecfdf5;
+    --green: #047857;
+    --red-bg: #fef2f2;
+    --red: #b91c1c;
+    --head-bg: #f8fafc;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    line-height: 1.5;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+    background: #fff;
+  }
+  h1 {
+    color: var(--accent);
+    font-size: 1.9rem;
+    margin: 0 0 .25rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: .9rem;
+    margin-bottom: 1rem;
+  }
+  .rule {
+    background: var(--head-bg);
+    border-left: 3px solid var(--accent);
+    padding: .7rem 1rem;
+    font-size: .9rem;
+    color: #374151;
+    border-radius: 4px;
+    margin-bottom: 1.75rem;
+  }
+  .rule code {
+    background: #eef2f7;
+    padding: .05rem .35rem;
+    border-radius: 3px;
+    font-size: .85em;
+  }
+  h2 {
+    font-size: 1.15rem;
+    margin: 2rem 0 .6rem;
+    padding-bottom: .3rem;
+    border-bottom: 2px solid var(--line);
+  }
+  h2 .num {
+    color: var(--accent);
+    margin-right: .4rem;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .88rem;
+    margin-bottom: .5rem;
+  }
+  th, td {
+    text-align: left;
+    vertical-align: top;
+    padding: .55rem .7rem;
+    border-bottom: 1px solid var(--line);
+  }
+  thead th {
+    background: var(--head-bg);
+    font-weight: 600;
+    border-bottom: 2px solid var(--line);
+  }
+  th.claim, td.claim { width: 20%; font-weight: 600; }
+  th.ask, td.ask { width: 34%; }
+  th.good, td.good { width: 23%; }
+  th.bad, td.bad { width: 23%; }
+  td.good { background: var(--green-bg); color: var(--green); }
+  td.bad  { background: var(--red-bg);  color: var(--red); }
+  th.good { color: var(--green); }
+  th.bad  { color: var(--red); }
+  .signals {
+    background: var(--head-bg);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    margin: 1.75rem 0;
+  }
+  .signals h2 { border: none; margin-top: 0; }
+  .signals ul { margin: .4rem 0 0; padding-left: 1.2rem; }
+  .signals li { margin-bottom: .4rem; }
+  .verdict {
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    border-top: 2px solid var(--line);
+    font-size: .95rem;
+  }
+  .verdict .opts { margin: .5rem 0; font-weight: 600; }
+  .verdict .opts span { margin-right: 1.5rem; }
+  .blank { color: var(--muted); }
+  .fill { display: inline-block; border-bottom: 1px solid #9ca3af; min-width: 60px; }
+  footer { margin-top: 3rem; color: var(--muted); font-size: .8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<h1>VP Engineering — Interview Scorecard</h1>
+<div class="meta">
+  Candidate: <strong>Eyal Matzkel</strong> &nbsp;·&nbsp;
+  Date: <span class="fill">&nbsp;</span> &nbsp;·&nbsp;
+  Interviewer: <span class="fill">&nbsp;</span>
+</div>
+
+<div class="rule">
+  <strong>Rule:</strong> every buzzword must cash out into a noun — a system, a number, a person, or a tradeoff.
+  <code>"What's an example?"</code> and <code>"What broke?"</code> are the whole game.
+  Score each row 1–5; look for the <em>pattern</em> across rows — one weak answer is noise, four is a verdict.
+</div>
+
+<h2><span class="num">1.</span>Cash out the buzzwords</h2>
+<table>
+  <thead>
+    <tr><th class="claim">He says</th><th class="ask">You ask</th><th class="good">🟢 Strong</th><th class="bad">🔴 Weak</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="claim">"Championed Responsible AI"</td><td class="ask">What did that mean operationally?</td><td class="good">Names artifacts: bias-test gate, model-risk review, kill switch, a process people resented</td><td class="bad">Adjectives: "alignment," "culture," "awareness"</td></tr>
+    <tr><td class="claim">"Company-Wide GenAI Strategy"</td><td class="ask">What's in production today, what did it cost, what was the measured impact?</td><td class="good">A specific shipped feature + baseline + number</td><td class="bad">Stays at "drove strategy / discovery"</td></tr>
+    <tr><td class="claim">"AI-first executive, 2022–2025"</td><td class="ask">What did you build before vs. after ChatGPT?</td><td class="good">Clear line; classical ML named as ML</td><td class="bad">Everything is retroactively "GenAI"</td></tr>
+    <tr><td class="claim">N26 fraud prevention (2020–22)</td><td class="ask">LLMs or classical ML?</td><td class="good">Knows the difference cold</td><td class="bad">Blurs the two</td></tr>
+  </tbody>
+</table>
+
+<h2><span class="num">2.</span>Make the metrics bleed</h2>
+<table>
+  <thead>
+    <tr><th class="claim">Claim</th><th class="ask">You ask</th><th class="good">🟢 Strong</th><th class="bad">🔴 Weak</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="claim">35 → 135 FTE in 2 yrs</td><td class="ask">Attrition during it? What broke at 135 that worked at 35?</td><td class="good">Owns a real cost — quality dip, rework, on-call strain</td><td class="bad">"Nothing broke"</td></tr>
+    <tr><td class="claim">+300% inventory / +50% conversion</td><td class="ask">Baseline? Attribution vs. pricing / marketing?</td><td class="good">Knows baseline, shares credit honestly</td><td class="bad">Round numbers, sole credit</td></tr>
+    <tr><td class="claim">"Success with EU regulators"</td><td class="ask">What did BaFin require, what slipped?</td><td class="good">Candid about what didn't get done</td><td class="bad">Polished, zero friction</td></tr>
+  </tbody>
+</table>
+
+<h2><span class="num">3.</span>Technical depth</h2>
+<table>
+  <thead>
+    <tr><th class="claim">Topic</th><th class="ask">You ask</th><th class="good">🟢 Strong</th><th class="bad">🔴 Weak</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="claim">Architecture</td><td class="ask">Draw a system you built. What would you not do again?</td><td class="good">Whiteboards a real bottleneck</td><td class="bad">Stays at the org-chart level</td></tr>
+    <tr><td class="claim">Incident</td><td class="ask">Last prod fire on your watch — your literal role in the hour?</td><td class="good">Was hands-on or close to it</td><td class="bad">Was "informed"</td></tr>
+    <tr><td class="claim">Reliability</td><td class="ask">How did you set SLOs / error budgets? In the pager rotation?</td><td class="good">Has run ops, respects it</td><td class="bad">Reliability is a blank</td></tr>
+  </tbody>
+</table>
+
+<h2><span class="num">4.</span>Leadership &amp; honesty</h2>
+<table>
+  <thead>
+    <tr><th class="claim">Topic</th><th class="ask">You ask</th><th class="good">🟢 Strong</th><th class="bad">🔴 Weak</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="claim">People</td><td class="ask">An engineer you managed out, and one you'd promote?</td><td class="good">Specific, fair, reflective</td><td class="bad">Vague or blames the report</td></tr>
+    <tr><td class="claim">Conflict</td><td class="ask">A real disagreement with a peer / CTO — who won?</td><td class="good">Owns a loss</td><td class="bad">Always the hero</td></tr>
+    <tr><td class="claim">Ops / Dev</td><td class="ask">How do you keep SREs and devs from despising each other?</td><td class="good">Structural thinking</td><td class="bad">Platitudes</td></tr>
+    <tr><td class="claim">Tenure</td><td class="ask">Why did you leave each of the last 4 roles?</td><td class="good">Reflection</td><td class="bad">Every story = "they didn't deserve me"</td></tr>
+  </tbody>
+</table>
+
+<div class="signals">
+  <h2>Two signals to track across the whole conversation</h2>
+  <ul>
+    <li><strong>"I" vs. "we"</strong> — VPs who only say "I" scale badly.</li>
+    <li><strong>Volunteers a failure unprompted?</strong> &nbsp; Y / N</li>
+  </ul>
+</div>
+
+<div class="verdict">
+  <div class="opts">
+    Overall: &nbsp;
+    <span>☐ Strong hire</span>
+    <span>☐ Hire</span>
+    <span>☐ No</span>
+    <span>☐ Strong no</span>
+  </div>
+  <div>One-line reason: <span class="fill" style="min-width:480px;">&nbsp;</span></div>
+</div>
+
+<footer>Score 1–5 per row. The pattern is the answer, not any single response.</footer>
+
+</body>
+</html>
