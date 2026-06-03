@@ -17,3 +17,6 @@ Thumbs.db
 # Build artifacts
 dist/
 build/
+
+# Local interview prep — candidate evaluation docs, not project content
+vp-engineering-*.html
